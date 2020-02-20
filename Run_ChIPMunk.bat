@@ -1,0 +1,6 @@
+@echo off
+
+echo chipmunk for DRIP-Seq CTD-/Rif- forward strand peaks..
+java -jar C:\Sutor\Dists\chipmunk.jar s:C:\Sutor\Science\E_coli_DRIP-Seq\Data_analysis\Peaks\DRIP_Seq_CTD_minus_Rif_minus_forward_peaks_threshold_300_sequences_longer_20bp_no_rRNA_LacI.fasta 1>C:\Sutor\Science\E_coli_DRIP-Seq\Data_analysis\Peaks_motif\DRIP_Seq_CTD_minus_Rif_minus_forward_peaks_threshold_300_sequences_longer_20bp_no_rRNA_LacI_peaks_motif.txt 2>C:\Sutor\Science\E_coli_DRIP-Seq\Data_analysis\Peaks_motif\DRIP_Seq_CTD_minus_Rif_minus_forward_peaks_threshold_300_sequences_longer_20bp_no_rRNA_LacI_peaks_log.txt
+echo chipmunk for DRIP-Seq CTD-/Rif- reverse strand peaks..
+java -jar C:\Sutor\Dists\chipmunk.jar s:C:\Sutor\Science\E_coli_DRIP-Seq\Data_analysis\Peaks\DRIP_Seq_CTD_minus_Rif_minus_reverse_peaks_threshold_300_sequences_longer_20bp_no_rRNA_LacI.fasta 1>C:\Sutor\Science\E_coli_DRIP-Seq\Data_analysis\Peaks_motif\DRIP_Seq_CTD_minus_Rif_minus_reverse_peaks_threshold_300_sequences_longer_20bp_no_rRNA_LacI_peaks_motif.txt 2>C:\Sutor\Science\E_coli_DRIP-Seq\Data_analysis\Peaks_motif\DRIP_Seq_CTD_minus_Rif_minus_reverse_peaks_threshold_300_sequences_longer_20bp_no_rRNA_LacI_peaks_log.txt
