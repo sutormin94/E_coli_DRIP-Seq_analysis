@@ -3,7 +3,7 @@
 ##DRIP-Seq analysis##
 
 ####
-#The only purpose - to subtract "+" and "-" strands of DRIP-Seq experiment (or any other strand-specific experiments).
+#To subtract "+" and "-" strands of DRIP-Seq experiment (or any other strand-specific experiments).
 ####
 
 ###############################################
@@ -11,39 +11,27 @@
 import numpy as np
 
 #Path to the working directory.
-PWD="C:\Sutor\Science\E_coli_DRIP-Seq\Data_analysis\\"
+PWD="C:\\Users\sutor\OneDrive\ThinkPad_working\Sutor\Science\E_coli_DRIP-Seq\Data_analysis\\"
 #Path to the file with IP data
-IP_path_dict={'1' :  PWD +        "Strand_average_scaled\DRIP_Seq_CTD_minus_Rif_minus_forward_av.wig",
-              '2' :  PWD +        "Strand_average_scaled\DRIP_Seq_CTD_minus_Rif_minus_reverse_av.wig",  
-              '3' :  PWD +        "Strand_average_scaled\DRIP_Seq_CTD_minus_Rif_plus_forward_av.wig",
-              '4' :  PWD +        "Strand_average_scaled\DRIP_Seq_CTD_minus_Rif_plus_reverse_av.wig", 
-              '5' :  PWD +        "Strand_average_scaled\DRIP_Seq_CTD_plus_Rif_minus_forward_av.wig",
-              '6' :  PWD +        "Strand_average_scaled\DRIP_Seq_CTD_plus_Rif_minus_reverse_av.wig",  
-              '7' :  PWD +        "Strand_average_scaled\DRIP_Seq_CTD_plus_Rif_plus_forward_av.wig",
-              '8' :  PWD +        "Strand_average_scaled\DRIP_Seq_CTD_plus_Rif_plus_reverse_av.wig",
+IP_path_dict={'1' :  PWD +        "WIG_av_str_subtr_scaled\DRIP_Seq_CTD_minus_Rif_minus_av_strands_subtr_scaled.wig",
+              '2' :  PWD +        "WIG_av_str_subtr_scaled\DRIP_Seq_CTD_minus_Rif_plus_av_strands_subtr_scaled.wig",  
+              '3' :  PWD +        "WIG_av_str_subtr_scaled\DRIP_Seq_CTD_plus_Rif_minus_av_strands_subtr_scaled.wig",
+              '4' :  PWD +        "WIG_av_str_subtr_scaled\DRIP_Seq_CTD_plus_Rif_plus_av_strands_subtr_scaled.wig", 
               }
 
 #Path to the file Mock control data
-Mock_path_dict={'1' :  PWD +           "Strand_average_scaled\DRIP_Seq_CTD_minus_Rif_minus_RNAseH_forward_av.wig",
-                '2' :  PWD +           "Strand_average_scaled\DRIP_Seq_CTD_minus_Rif_minus_RNAseH_reverse_av.wig",
-                '3' :  PWD +           "Strand_average_scaled\DRIP_Seq_CTD_minus_Rif_plus_RNAseH_forward_av.wig",
-                '4' :  PWD +           "Strand_average_scaled\DRIP_Seq_CTD_minus_Rif_plus_RNAseH_reverse_av.wig",
-                '5' :  PWD +           "Strand_average_scaled\DRIP_Seq_CTD_plus_Rif_minus_RNAseA_forward_av.wig",
-                '6' :  PWD +           "Strand_average_scaled\DRIP_Seq_CTD_plus_Rif_minus_RNAseA_reverse_av.wig",
-                '7' :  PWD +           "Strand_average_scaled\DRIP_Seq_CTD_plus_Rif_plus_RNAseA_forward_av.wig",
-                '8' :  PWD +           "Strand_average_scaled\DRIP_Seq_CTD_plus_Rif_plus_RNAseA_reverse_av.wig",                  
+Mock_path_dict={'1' :  PWD +           "WIG_av_str_subtr_scaled\DRIP_Seq_CTD_minus_Rif_minus_RNAse_av_strands_subtr_scaled.wig",
+                '2' :  PWD +           "WIG_av_str_subtr_scaled\DRIP_Seq_CTD_minus_Rif_plus_RNAse_av_strands_subtr_scaled.wig",
+                '3' :  PWD +           "WIG_av_str_subtr_scaled\DRIP_Seq_CTD_plus_Rif_minus_RNAse_av_strands_subtr_scaled.wig",
+                '4' :  PWD +           "WIG_av_str_subtr_scaled\DRIP_Seq_CTD_plus_Rif_plus_RNAse_av_strands_subtr_scaled.wig",                 
                 }
 
 
 #ID or short description of the track (will be the name of a track in IGV).
-name_dict={'1' :  "DRIP_Seq_CTD_minus_Rif_minus_forward_av - DRIP_Seq_CTD_minus_Rif_minus_RNAseH_forward_av",
-           '2' :  "DRIP_Seq_CTD_minus_Rif_minus_reverse_av - DRIP_Seq_CTD_minus_Rif_minus_RNAseH_reverse_av", 
-           '3' :  "DRIP_Seq_CTD_minus_Rif_plus_forward_av - DRIP_Seq_CTD_minus_Rif_plus_RNAseH_forward_av",
-           '4' :  "DRIP_Seq_CTD_minus_Rif_plus_reverse_av - DRIP_Seq_CTD_minus_Rif_plus_RNAseH_reverse_av", 
-           '5' :  "DRIP_Seq_CTD_plus_Rif_minus_forward_av - DRIP_Seq_CTD_plus_Rif_minus_RNAseA_forward_av",
-           '6' :  "DRIP_Seq_CTD_plus_Rif_minus_reverse_av - DRIP_Seq_CTD_plus_Rif_minus_RNAseA_reverse_av", 
-           '7' :  "DRIP_Seq_CTD_plus_Rif_plus_forward_av - DRIP_Seq_CTD_plus_Rif_plus_RNAseA_forward_av",
-           '8' :  "DRIP_Seq_CTD_plus_Rif_plus_reverse_av - DRIP_Seq_CTD_plus_Rif_plus_RNAseA_reverse_av", 
+name_dict={'1' :  "DRIP_Seq_CTD_minus_Rif_minus_av_strands_subtr_scaled_control_subtr",
+           '2' :  "DRIP_Seq_CTD_minus_Rif_plus_av_strands_subtr_scaled_control_subtr", 
+           '3' :  "DRIP_Seq_CTD_plus_Rif_minus_av_strands_subtr_scaled_control_subtr",
+           '4' :  "DRIP_Seq_CTD_plus_Rif_plus_av_strands_subtr_scaled_control_subtr", 
            }
 
 #ID of chromosome (for w3110_Mu_SGS: NC_007779.1_w3110_Mu)
@@ -52,16 +40,12 @@ Chromosome_name_manual=''
 Auto_or_manual=int(0)
 
 #Path to the output directory.
-PWD_out="C:\Sutor\Science\E_coli_DRIP-Seq\Data_analysis\Strand_wise_subtraction_scaled\\"
+PWD_out=PWD + "WIG_av_str_subtr_scaled_control_subtr\\"
 #Output path to the final file (fold enrichment).
-FE_file_path_dict={'1' :  PWD_out +           "DRIP_Seq_CTD_minus_Rif_minus_forward_av_subtr.wig",
-                   '2' :  PWD_out +           "DRIP_Seq_CTD_minus_Rif_minus_reverse_av_subtr.wig",
-                   '3' :  PWD_out +           "DRIP_Seq_CTD_minus_Rif_plus_forward_av_subtr.wig",
-                   '4' :  PWD_out +           "DRIP_Seq_CTD_minus_Rif_plus_reverse_av_subtr.wig", 
-                   '5' :  PWD_out +           "DRIP_Seq_CTD_plus_Rif_minus_forward_av_subtr.wig",
-                   '6' :  PWD_out +           "DRIP_Seq_CTD_plus_Rif_minus_reverse_av_subtr.wig",
-                   '7' :  PWD_out +           "DRIP_Seq_CTD_plus_Rif_plus_forward_av_subtr.wig",
-                   '8' :  PWD_out +           "DRIP_Seq_CTD_plus_Rif_plus_reverse_av_subtr.wig", 
+FE_file_path_dict={'1' :  PWD_out +           "DRIP_Seq_CTD_minus_Rif_minus_av_strands_subtr_scaled_control_subtr.wig",
+                   '2' :  PWD_out +           "DRIP_Seq_CTD_minus_Rif_plus_av_strands_subtr_scaled_control_subtr.wig",
+                   '3' :  PWD_out +           "DRIP_Seq_CTD_plus_Rif_minus_av_strands_subtr_scaled_control_subtr.wig",
+                   '4' :  PWD_out +           "DRIP_Seq_CTD_plus_Rif_plus_av_strands_subtr_scaled_control_subtr.wig", 
                    }
 
 

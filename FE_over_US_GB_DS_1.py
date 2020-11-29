@@ -21,86 +21,48 @@ from Bio import SeqIO
 
 #Path to the directory with input files.
 PWD='C:\\Users\sutor\OneDrive\ThinkPad_working\Sutor\Science\E_coli_DRIP-Seq\Data_analysis\\'
+#Path to TUs groups file.
+TUs_groups_path="C:\\Users\sutor\OneDrive\ThinkPad_working\Sutor\Science\E_coli_RNA-Seq\Expression_data\DY330_transcripts\Representative_transcripts\\"
 #Path to the input annotation, type of annotation and name of TUs set.
-##0##
-Path_to_annotation_0='C:\Sutor\Science\E_coli_RNA-Seq\Expression_data\DY330_genes\DY330_RNA-Seq_genes_no_rRNA_EP_del_cor.txt'
-Type_of_annot_0='broadPeak'
-Genes_set_name_0='All_genes_no_rRNA_lacI_cat'
 ##1##
-Path_to_annotation_1='C:\Sutor\Science\E_coli_RNA-Seq\Expression_data\DY330_genes\DY330_RNA-Seq_genes_EP_del_cor.txt'
-Type_of_annot_1='broadPeak'
-Genes_set_name_1='All_genes'
-##2##
-Path_to_annotation_2='C:\Sutor\Science\E_coli_RNA-Seq\Expression_data\DY330_genes\DY330_RNA-Seq_genes_EP_del_cor_HEG_270.txt'
-Type_of_annot_2='broadPeak'
-Genes_set_name_2='HEG_270'
-##3##
-Path_to_annotation_3='C:\Sutor\Science\E_coli_RNA-Seq\Expression_data\DY330_genes\DY330_RNA-Seq_genes_EP_del_cor_LEG_270.txt'
-Type_of_annot_3='broadPeak'
-Genes_set_name_3='LEG_270'
-##4##
-Path_to_annotation_4='C:\Sutor\Science\E_coli_RNA-Seq\Expression_data\DY330_operons\DY330_RNA-Seq_operons_EP_del_cor.txt'
-Type_of_annot_4='broadPeak'
-Genes_set_name_4='All_operons'
-##5##
-Path_to_annotation_5='C:\Sutor\Science\E_coli_RNA-Seq\Expression_data\DY330_operons\DY330_RNA-Seq_operons_EP_del_cor_HEO_186.txt'
-Type_of_annot_5='broadPeak'
-Genes_set_name_5='HEO_186'
-##6##
-Path_to_annotation_6='C:\Sutor\Science\E_coli_RNA-Seq\Expression_data\DY330_operons\DY330_RNA-Seq_operons_EP_del_cor_LEO_186.txt'
-Type_of_annot_6='broadPeak'
-Genes_set_name_6='LEO_186'
-##7##
-Path_to_annotation_7='C:\Sutor\Science\E_coli_RNA-Seq\Expression_data\DY330_operons\DY330_RNA-Seq_operons_no_rRNA_EP_del_cor.txt'
-Type_of_annot_7='broadPeak'
-Genes_set_name_7='All_operons_no_rRNA_lacI_cat'
-##8##
-Path_to_annotation_8='D:\Sutormin_data\D_Sutormin\Science\E_coli_RNA-Seq\E_coli_DY330_RNA-Seq\Expression_data\\DY330_operons\DY330_RNA-Seq_operons_no_dps_region_EP_del_cor_HEO_186.txt'
-Type_of_annot_8='broadPeak'
-Genes_set_name_8='HEO_186_no_dps'
-##9##
-Path_to_annotation_9='D:\Sutormin_data\D_Sutormin\Science\E_coli_RNA-Seq\E_coli_DY330_RNA-Seq\Expression_data\\DY330_operons\DY330_RNA-Seq_operons_no_dps_region_EP_del_cor_LEO_186.txt'
-Type_of_annot_9='broadPeak'
-Genes_set_name_9='LEO_186_no_dps'
-##10##
-Path_to_annotation_10='C:\Sutor\Science\E_coli_RNA-Seq\Expression_data\\DY330_transcripts\DY330_RNA-Seq_transcripts_no_ompX_EP_del_cor_HETU_321.txt'
-Type_of_annot_10='broadPeak'
-Genes_set_name_10='HE_TU_321_no_ompX'
-##11##
-Path_to_annotation_11='C:\Sutor\Science\E_coli_RNA-Seq\Expression_data\\DY330_transcripts\DY330_RNA-Seq_transcripts_no_ybiI_EP_del_cor_LETU_244.txt'
-Type_of_annot_11='broadPeak'
-Genes_set_name_11='LE_TU_244_no_ybiI'
-##12##
-Path_to_annotation_12='C:\Sutor\Science\E_coli_RNA-Seq\Expression_data\\DY330_transcripts\DY330_RNA-Seq_transcripts_EP_del_cor.txt'
-Type_of_annot_12='broadPeak'
-Genes_set_name_12='All_TUs_2173'
-##13##
-Path_to_annotation_13='C:\\Users\sutor\OneDrive\ThinkPad_working\Sutor\Science\E_coli_RNA-Seq\Expression_data\DY330_transcripts\Representative_transcripts\DY330_RNA-Seq_transcripts_representative_NO_DPS_NO_RFA_no_tRNA_rRNA_EP_del_cor_HETU_200.txt'
-Type_of_annot_13='broadPeak'
-Genes_set_name_13='HETU_200'
-##14##
-Path_to_annotation_14='C:\\Users\sutor\OneDrive\ThinkPad_working\Sutor\Science\E_coli_RNA-Seq\Expression_data\DY330_transcripts\Representative_transcripts\DY330_RNA-Seq_transcripts_representative_NO_DPS_no_tRNA_rRNA_EP_del_cor_LETU_200.txt'
-Type_of_annot_14='broadPeak'
-Genes_set_name_14='LETU_200'
-##15##
-Path_to_annotation_15='C:\\Users\sutor\OneDrive\ThinkPad_working\Sutor\Science\E_coli_RNA-Seq\Expression_data\DY330_transcripts\Representative_transcripts\DY330_RNA-Seq_transcripts_representative_no_tRNA_rRNA_EP_del_cor.txt'
-Type_of_annot_15='broadPeak'
-Genes_set_name_15='All_TUs_no_tRNA_rRNA'
-##16##
-Path_to_annotation_16='C:\Sutor\Science\E_coli_RNA-Seq\Expression_data\\DY330_transcripts\DY330_RNA-Seq_transcripts_EP_del_cor_rRNA_7.txt'
-Type_of_annot_16='broadPeak'
-Genes_set_name_16='rRNA_7'
-##17##
-Path_to_annotation_17='C:\Sutor\Science\E_coli_RNA-Seq\Expression_data\\DY330_transcripts\DY330_RNA-Seq_transcripts_EP_del_cor_tRNA_49.txt'
-Type_of_annot_17='broadPeak'
-Genes_set_name_17='tRNA_49'
-##18##
-Path_to_annotation_18='C:\Sutor\Science\E_coli_RNA-Seq\Expression_data\\DY330_transcripts\DY330_RNA-Seq_transcripts_no_tRNA_rRNA_no_ybiI_no_appY_EP_del_cor_LETU_248.txt'
-Type_of_annot_18='broadPeak'
-Genes_set_name_18='LE_TU_248_no_ybiI_no_appY'
+Path_to_annotation_1=TUs_groups_path + 'DY330_RNA-Seq_transcripts_representative_EP_del_cor.txt'
+Type_of_annot_1='broadPeak'             
+Genes_set_name_1='All_TUs_1672'    
+##2##                                   
+Path_to_annotation_2=TUs_groups_path + 'DY330_RNA-Seq_transcripts_representative_no_tRNA_rRNA_EP_del_cor.txt'
+Type_of_annot_2='broadPeak'             
+Genes_set_name_2='All_TUs_no_tRNA_rRNA_1623'    
+##3##                                   
+Path_to_annotation_3=TUs_groups_path + 'DY330_RNA-Seq_transcripts_representative_no_tRNA_rRNA_ompX_EP_del_cor_HETU_200.txt'
+Type_of_annot_3='broadPeak'             
+Genes_set_name_3='HETU_no_ompX_200'         
+##4##                                   
+Path_to_annotation_4=TUs_groups_path + 'DY330_RNA-Seq_transcripts_representative_no_tRNA_rRNA_appY_ybiI_EP_del_cor_LETU_200.txt'
+Type_of_annot_4='broadPeak'             
+Genes_set_name_4='LETU_no_appY_ybiI_200'             
+##5##                                   
+Path_to_annotation_5=TUs_groups_path + 'DY330_RNA-Seq_transcripts_EP_del_cor_rRNA_7.txt'
+Type_of_annot_5='broadPeak'             
+Genes_set_name_5='rRNA_7'               
+##6##                                   
+Path_to_annotation_6=TUs_groups_path + 'DY330_RNA-Seq_transcripts_EP_del_cor_tRNA_49.txt'
+Type_of_annot_6='broadPeak'             
+Genes_set_name_6='tRNA_49'              
+##7##                                   
+Path_to_annotation_7=TUs_groups_path + 'DY330_RNA-Seq_transcripts_representative_NO_DPS_EP_del_cor.txt'
+Type_of_annot_7='broadPeak'             
+Genes_set_name_7='All_TUs_no_dps_1660'    
+##8##                                   
+Path_to_annotation_8=TUs_groups_path + 'DY330_RNA-Seq_transcripts_representative_NO_DPS_NO_RFA_no_tRNA_rRNA_EP_del_cor_HETU_200.txt'
+Type_of_annot_8='broadPeak'             
+Genes_set_name_8='HETU_no_dps_rfa_200'         
+##9##                                   
+Path_to_annotation_9=TUs_groups_path + 'DY330_RNA-Seq_transcripts_representative_NO_DPS_no_tRNA_rRNA_EP_del_cor_LETU_200.txt'
+Type_of_annot_9='broadPeak'             
+Genes_set_name_9='LETU_no_dps_200'    
 
 #Path to the file with regions to be omitted (e.g. deletions).
-Deletions_inpath='C:\\Users\sutor\OneDrive\ThinkPad_working\Sutor\Science\E_coli_DRIP-Seq\Scripts\E_coli_DRIP-Seq_analysis\Additional_genome_features\Deletions_w3110_G_Mu_SGS.broadPeak'
+Deletions_inpath='C:\\Users\sutor\OneDrive\ThinkPad_working\Sutor\Science\E_coli_DRIP-Seq\Scripts\E_coli_DRIP-Seq_analysis\Additional_genome_features\Deletions_w3110_G_Mu_SGS_extended.broadPeak'
 #Width of US, DS regions.
 Win_width=15000
 #Length of GB.
@@ -117,6 +79,13 @@ Dict_of_wigs_path={'DRIP_CTD_minus_Rif_minus' :       PWD + 'WIG_av_str_subtr_sc
                    'DRIP_CTD_plus_Rif_plus_RNAse' :   PWD + 'WIG_av_str_subtr_scaled\DRIP_Seq_CTD_plus_Rif_plus_RNAse_av_strands_subtr_scaled.wig',                    
                    }
 
+#Dictionary of pathes to input data.
+Dict_of_wigs_path_2={'DRIP_CTD_minus_Rif_minus' :       PWD + 'WIG_av_str_subtr_scaled_control_subtr\DRIP_Seq_CTD_minus_Rif_minus_av_strands_subtr_scaled_control_subtr.wig',
+                     'DRIP_CTD_minus_Rif_plus' :        PWD + 'WIG_av_str_subtr_scaled_control_subtr\DRIP_Seq_CTD_minus_Rif_plus_av_strands_subtr_scaled_control_subtr.wig',
+                     'DRIP_CTD_plus_Rif_minus' :        PWD + 'WIG_av_str_subtr_scaled_control_subtr\DRIP_Seq_CTD_plus_Rif_minus_av_strands_subtr_scaled_control_subtr.wig',
+                     'DRIP_CTD_plus_Rif_plus' :         PWD + 'WIG_av_str_subtr_scaled_control_subtr\DRIP_Seq_CTD_plus_Rif_plus_av_strands_subtr_scaled_control_subtr.wig',
+                     }
+
 #######
 #Checks if directory exists and if not creates.
 #######
@@ -127,27 +96,27 @@ def Dir_check_create(some_path):
     return
 
 #Path to the output directory.
-Out_path='C:\\Users\sutor\OneDrive\ThinkPad_working\Sutor\Science\E_coli_DRIP-Seq\Data_analysis\\'
+Out_path='C:\\Users\sutor\OneDrive\ThinkPad_working\Sutor\Science\E_coli_DRIP-Seq\Data_analysis\Signal_over_TUs_3\\'
 
 #Output path.
 def create_out_dirs(out_path, genes_set_name):
     Dir_check_create(out_path)
     Dir_check_create(out_path+'\Figures\Plots\\'+genes_set_name)
     Dir_check_create(out_path+'\Figures\Histograms\\'+genes_set_name)
-    Dir_check_create(out_path+'\Signal_tab\\'+genes_set_name)
-    Dir_check_create(out_path+'\Signal_wig\\'+genes_set_name)    
+    Dir_check_create(out_path+'\Signal_of_TUs_tab\\'+genes_set_name)
+    Dir_check_create(out_path+'\Signal_of_TUs_wig\\'+genes_set_name)    
     return
 
-#create_out_dirs(Out_path, Genes_set_name_0)
 #create_out_dirs(Out_path, Genes_set_name_1)
 #create_out_dirs(Out_path, Genes_set_name_2)
 #create_out_dirs(Out_path, Genes_set_name_3)
 #create_out_dirs(Out_path, Genes_set_name_4)
 #create_out_dirs(Out_path, Genes_set_name_5)
 #create_out_dirs(Out_path, Genes_set_name_6)
-create_out_dirs(Out_path, Genes_set_name_13)
-create_out_dirs(Out_path, Genes_set_name_14)
-create_out_dirs(Out_path, Genes_set_name_15)
+create_out_dirs(Out_path, Genes_set_name_2)
+create_out_dirs(Out_path, Genes_set_name_8)
+create_out_dirs(Out_path, Genes_set_name_9)
+
 
 
 #######
@@ -433,19 +402,20 @@ def genes_and_FE(gene_annotation, genes_set_name, FE_track, FE_track_name, out_p
                 gene_B_mean_dict[gene_name]=[np.mean(FE_track[start:end]), start, end, gene_info[2]]
             elif gene_info[2]=='-':
                 if start<win_width:
-                    gene_DS+=np.array(FE_track[:start][::-1] + FE_track[glen-(win_width-start):][::-1])
-                    gene_DS_mean_dict[gene_name]=[np.mean(FE_track[:start][::-1] + FE_track[glen-(win_width-start):][::-1]), start, end, gene_info[2]]
+                    gene_DS+=np.array(FE_track[:start][::-1] + FE_track[glen-(win_width-start):][::-1])*(-1)                     #Take care of strand-specificity.
+                    gene_DS_mean_dict[gene_name]=[np.mean(FE_track[:start][::-1] + FE_track[glen-(win_width-start):][::-1])*(-1), start, end, gene_info[2]] #Take care of strand-specificity.
                 else:
-                    gene_DS+=np.array(FE_track[start-win_width:start][::-1])
-                    gene_DS_mean_dict[gene_name]=[np.mean(FE_track[start-win_width:start][::-1]), start, end, gene_info[2]]
+                    gene_DS+=np.array(FE_track[start-win_width:start][::-1])*(-1)                                                #Take care of strand-specificity.
+                    gene_DS_mean_dict[gene_name]=[np.mean(FE_track[start-win_width:start][::-1])*(-1), start, end, gene_info[2]] #Take care of strand-specificity.
                 if end+win_width>glen:
-                    gene_US+=np.array(FE_track[:end+win_width-glen][::-1] + FE_track[end:][::-1])  
-                    gene_US_mean_dict[gene_name]=[np.mean(FE_track[:end+win_width-glen][::-1] + FE_track[end:][::-1]), start, end, gene_info[2]]
+                    gene_US+=np.array(FE_track[:end+win_width-glen][::-1] + FE_track[end:][::-1])*(-1)                           #Take care of strand-specificity.
+                    gene_US_mean_dict[gene_name]=[np.mean(FE_track[:end+win_width-glen][::-1] + FE_track[end:][::-1])*(-1), start, end, gene_info[2]] #Take care of strand-specificity.
                 else:
-                    gene_US+=np.array(FE_track[end:end+win_width][::-1]) 
-                    gene_US_mean_dict[gene_name]=[np.mean(FE_track[end:end+win_width][::-1]), start, end, gene_info[2]]
-                gene_B.append(FE_track[start:end][::-1])
-                gene_B_mean_dict[gene_name]=[np.mean(FE_track[start:end][::-1]), start, end, gene_info[2]]
+                    gene_US+=np.array(FE_track[end:end+win_width][::-1])*(-1)                                                    #Take care of strand-specificity.
+                    gene_US_mean_dict[gene_name]=[np.mean(FE_track[end:end+win_width][::-1])*(-1), start, end, gene_info[2]]     #Take care of strand-specificity.
+                gene_B_ar=np.array(FE_track[start:end][::-1])*(-1)                                                               #Take care of strand-specificity.
+                gene_B.append(gene_B_ar.tolist())
+                gene_B_mean_dict[gene_name]=[np.mean(gene_B_ar), start, end, gene_info[2]]
     Num_genes=len(gene_annotation)
     gene_US=gene_US/Num_genes
     gene_DS=gene_DS/Num_genes
@@ -458,16 +428,10 @@ def genes_and_FE(gene_annotation, genes_set_name, FE_track, FE_track_name, out_p
         gene_scaled=np.array(scale_gene_body(gene, length))
         gene_body+=gene_scaled
     gene_B=gene_body/Num_genes
-    
-    #Create folders to keep files.
-    Dir_check_create(f'{out_path}\Signal_wig\\{genes_set_name}')
-    Dir_check_create(f'{out_path}\Figures\Plots\\{genes_set_name}')
-    Dir_check_create(f'{out_path}\Signal_tab\\{genes_set_name}')
-    Dir_check_create(f'{out_path}\Figures\Histograms\\{genes_set_name}')
-    
+
     #Write wig-like file with FE over US, GB, DS.
     print(f'Writing FE over TU, GB, DS...')
-    write_wig(np.concatenate((gene_US, gene_B, gene_DS), axis=None), f'{out_path}\Signal_wig\\{genes_set_name}\Signal_{FE_track_name}_over_{genes_set_name}_width_{win_width}bp_gb_{length}bp.wig', f'{win_width}_{length}')
+    write_wig(np.concatenate((gene_US, gene_B, gene_DS), axis=None), f'{out_path}\Signal_of_TUs_wig\\{genes_set_name}\Signal_{FE_track_name}_over_{genes_set_name}_width_{win_width}bp_gb_{length}bp.wig', f'{win_width}_{length}')
 
     #Plot FE over US, GB, DS. 
     print(f'Plotting FE over TU, GB, DS...')
@@ -505,7 +469,7 @@ def genes_and_FE(gene_annotation, genes_set_name, FE_track, FE_track_name, out_p
 
     #Write table contains FE for US, GB, DS of TUs in a set.
     print(f'Writing FE for TUs\' TU, GB, DS...')
-    write_genes_FE(gene_US_mean_dict, gene_B_mean_dict, gene_DS_mean_dict, FE_track_name, f'{out_path}\Signal_tab\\{genes_set_name}\{FE_track_name}_over_{genes_set_name}_{win_width}bp.txt')
+    write_genes_FE(gene_US_mean_dict, gene_B_mean_dict, gene_DS_mean_dict, FE_track_name, f'{out_path}\Signal_of_TUs_tab\\{genes_set_name}\{FE_track_name}_over_{genes_set_name}_{win_width}bp.txt')
 
     #Plot distribution of mean TUs' FEs.
     print(f'Plotting FE distribution over TU, GB, DS...')
@@ -530,57 +494,19 @@ def Wrapper_signal_over_TUs(dict_of_wigs_path, path_to_annotation, type_of_annot
         gene_annotation=parse_gff_annotation(path_to_annotation, deletions_inpath)[0]['Gene']
     elif type_of_annot=='broadPeak':
         gene_annotation=parse_expression_annotation(path_to_annotation)
-        
-    #Additional filtration of TUs.
-    Ter_position=1593600
-    Ori_position=3711900    
-    gene_annotation_L={}
-    gene_annotation_R={}
-    for TU_name, data in gene_annotation.items():
-        TU_start=data[0]
-        if (((TU_start>0) & (TU_start<Ter_position)) | (TU_start>Ori_position)): #Right replichore.
-            gene_annotation_R[TU_name]=data
-        elif (TU_start>Ter_position) & (TU_start<Ori_position): #Left replichore.
-            gene_annotation_L[TU_name]=data
-    print(len(gene_annotation), len(gene_annotation_R), len(gene_annotation_L))
-    
     
     #Calculate and plot signal over TUs.
-    #for FE_track_name, FE_track in dict_of_wigs.items():
-    #    #genes_and_FE(gene_annotation, genes_set_name, FE_track, FE_track_name, out_path, deletions_inpath, win_width, length)
-    #    genes_and_FE(gene_annotation_R, genes_set_name+'_R', FE_track, FE_track_name, out_path, deletions_inpath, win_width, length)
-    #    genes_and_FE(gene_annotation_L, genes_set_name+'_L', FE_track, FE_track_name, out_path, deletions_inpath, win_width, length)
+    for FE_track_name, FE_track in dict_of_wigs.items():
+        genes_and_FE(gene_annotation, genes_set_name, FE_track, FE_track_name, out_path, deletions_inpath, win_width, length)
     return
 
-#Wrapper_signal_over_TUs(Dict_of_wigs_path_TopoI, Path_to_annotation_1, Type_of_annot_1, Genes_set_name_1, Deletions_inpath, Win_width, Length, Out_path)
-#Wrapper_signal_over_TUs(Dict_of_wigs_path_TopoI, Path_to_annotation_2, Type_of_annot_2, Genes_set_name_2, Deletions_inpath, Win_width, Length, Out_path)
-#Wrapper_signal_over_TUs(Dict_of_wigs_path_TopoI, Path_to_annotation_3, Type_of_annot_3, Genes_set_name_3, Deletions_inpath, Win_width, Length, Out_path)
-#Wrapper_signal_over_TUs(Dict_of_wigs_path_TopoI, Path_to_annotation_4, Type_of_annot_4, Genes_set_name_4, Deletions_inpath, Win_width, Length, Out_path)
-#Wrapper_signal_over_TUs(Dict_of_wigs_path_TopoI, Path_to_annotation_5, Type_of_annot_5, Genes_set_name_5, Deletions_inpath, Win_width, Length, Out_path)
-#Wrapper_signal_over_TUs(Dict_of_wigs_path_TopoI, Path_to_annotation_6, Type_of_annot_6, Genes_set_name_6, Deletions_inpath, Win_width, Length, Out_path)
-#Wrapper_signal_over_TUs(Dict_of_wigs_path_TopoI, Path_to_annotation_7, Type_of_annot_7, Genes_set_name_7, Deletions_inpath, Win_width, Length, Out_path)
-#Wrapper_signal_over_TUs(Dict_of_wigs_path_TopoI, Path_to_annotation_8, Type_of_annot_8, Genes_set_name_8, Deletions_inpath, Win_width, Length, Out_path)
-#Wrapper_signal_over_TUs(Dict_of_wigs_path_TopoI, Path_to_annotation_9, Type_of_annot_9, Genes_set_name_9, Deletions_inpath, Win_width, Length, Out_path)
-
-#Wrapper_signal_over_TUs(Dict_of_wigs_path_TopoI, Path_to_annotation_10, Type_of_annot_10, Genes_set_name_10, Deletions_inpath, Win_width, Length, Out_path)
-#Wrapper_signal_over_TUs(Dict_of_wigs_path_TopoI, Path_to_annotation_11, Type_of_annot_11, Genes_set_name_11, Deletions_inpath, Win_width, Length, Out_path)
-#Wrapper_signal_over_TUs(Dict_of_wigs_path_TopoI, Path_to_annotation_12, Type_of_annot_12, Genes_set_name_12, Deletions_inpath, Win_width, Length, Out_path)
-#Wrapper_signal_over_TUs(Dict_of_wigs_path_TopoI, Path_to_annotation_13, Type_of_annot_13, Genes_set_name_13, Deletions_inpath, Win_width, Length, Out_path)
-#Wrapper_signal_over_TUs(Dict_of_wigs_path_TopoI, Path_to_annotation_14, Type_of_annot_14, Genes_set_name_14, Deletions_inpath, Win_width, Length, Out_path)
-#Wrapper_signal_over_TUs(Dict_of_wigs_path_TopoI, Path_to_annotation_15, Type_of_annot_15, Genes_set_name_15, Deletions_inpath, Win_width, Length, Out_path)
-#Wrapper_signal_over_TUs(Dict_of_wigs_path_TopoI, Path_to_annotation_16, Type_of_annot_16, Genes_set_name_16, Deletions_inpath, Win_width, Length, Out_path)
-#Wrapper_signal_over_TUs(Dict_of_wigs_path_TopoI, Path_to_annotation_17, Type_of_annot_17, Genes_set_name_17, Deletions_inpath, Win_width, Length, Out_path)
-#Wrapper_signal_over_TUs(Dict_of_wigs_path_TopoI, Path_to_annotation_18, Type_of_annot_18, Genes_set_name_18, Deletions_inpath, Win_width, Length, Out_path)
-
-#Wrapper_signal_over_TUs(Dict_of_wigs_path, Path_to_annotation_0, Type_of_annot_0, Genes_set_name_0, Deletions_inpath, Win_width, Length, Out_path)
 #Wrapper_signal_over_TUs(Dict_of_wigs_path, Path_to_annotation_1, Type_of_annot_1, Genes_set_name_1, Deletions_inpath, Win_width, Length, Out_path)
 #Wrapper_signal_over_TUs(Dict_of_wigs_path, Path_to_annotation_2, Type_of_annot_2, Genes_set_name_2, Deletions_inpath, Win_width, Length, Out_path)
 #Wrapper_signal_over_TUs(Dict_of_wigs_path, Path_to_annotation_3, Type_of_annot_3, Genes_set_name_3, Deletions_inpath, Win_width, Length, Out_path)
 #Wrapper_signal_over_TUs(Dict_of_wigs_path, Path_to_annotation_4, Type_of_annot_4, Genes_set_name_4, Deletions_inpath, Win_width, Length, Out_path)
 #Wrapper_signal_over_TUs(Dict_of_wigs_path, Path_to_annotation_5, Type_of_annot_5, Genes_set_name_5, Deletions_inpath, Win_width, Length, Out_path)
 #Wrapper_signal_over_TUs(Dict_of_wigs_path, Path_to_annotation_6, Type_of_annot_6, Genes_set_name_6, Deletions_inpath, Win_width, Length, Out_path)
-#Wrapper_signal_over_TUs(Dict_of_wigs_path, Path_to_annotation_7, Type_of_annot_7, Genes_set_name_7, Deletions_inpath, Win_width, Length, Out_path)
 
-Wrapper_signal_over_TUs(Dict_of_wigs_path, Path_to_annotation_13, Type_of_annot_13, Genes_set_name_13, Deletions_inpath, Win_width, Length, Out_path)
-Wrapper_signal_over_TUs(Dict_of_wigs_path, Path_to_annotation_14, Type_of_annot_14, Genes_set_name_14, Deletions_inpath, Win_width, Length, Out_path)
-Wrapper_signal_over_TUs(Dict_of_wigs_path, Path_to_annotation_15, Type_of_annot_15, Genes_set_name_15, Deletions_inpath, Win_width, Length, Out_path)
+Wrapper_signal_over_TUs(Dict_of_wigs_path_2, Path_to_annotation_2, Type_of_annot_2, Genes_set_name_2, Deletions_inpath, Win_width, Length, Out_path)
+Wrapper_signal_over_TUs(Dict_of_wigs_path_2, Path_to_annotation_8, Type_of_annot_8, Genes_set_name_8, Deletions_inpath, Win_width, Length, Out_path)
+Wrapper_signal_over_TUs(Dict_of_wigs_path_2, Path_to_annotation_9, Type_of_annot_9, Genes_set_name_9, Deletions_inpath, Win_width, Length, Out_path)

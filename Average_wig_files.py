@@ -19,22 +19,23 @@ from matplotlib import cm as cm
 
 
 #Path to the working directory.
-PWD="C:\Sutor\Science\E_coli_DRIP-Seq\Data_analysis\WIG_scaled\\"
+PWD="C:\\Users\sutor\OneDrive\ThinkPad_working\Sutor\Science\E_coli_DRIP-Seq\\"
 
 #Dictionary of replicas 
 #'Replica name' : 'Path to wig file'
-Dict_of_replicas={'Replic 1' : PWD + "DRIP_Seq_CTD_plus_Rif_plus_RNAseA_Rep2_S21_reverse.wig",
-                  'Replic 2' : PWD + "DRIP_Seq_CTD_plus_Rif_plus_RNAseA_Rep3_S23_reverse.wig",}
+Dict_of_replicas={'Replic 1' : PWD + "WIG\TopA-SPA_DRIP-Seq_1rH_S8_edt_reverse_depth.wig",
+                  'Replic 2' : PWD + "WIG\TopA-SPA_DRIP-Seq_2rH_S10_edt_reverse_depth.wig",
+                  'Replic 3' : PWD + "WIG\TopA-SPA_DRIP-Seq_3rH_S12_edt_reverse_depth.wig",}
 
 #ID or short description of the track (will be the name of a track in IGV).
-name='DRIP_Seq_CTD_plus_Rif_plus_RNAseA_reverse_av'
+name='DRIP_Seq_CTD_minus_Rif_plus_RNAse_reverse_av'
 #ID of chromosome (for w3110_Mu_SGS: NC_007779.1_w3110_Mu)
 Chromosome_name='NC_007779.1_w3110_Mu'
 #Output path for the final file.
-PWD_out="C:\Sutor\Science\E_coli_DRIP-Seq\Data_analysis\Strand_average_scaled\\"
-average_file_path=PWD_out + "DRIP_Seq_CTD_plus_Rif_plus_RNAseA_reverse_av.wig"
+PWD_out=PWD + "Data_analysis\WIG_av\\"
+average_file_path=PWD_out + name + ".wig"
 #Output path for the corralation matrix.
-Outpath=PWD_out + "DRIP_Seq_CTD_plus_Rif_plus_RNAseA_reverse_av_correlation_matrix.png"
+Outpath=PWD_out + name + "_correlation_matrix.png"
 
 
 #######

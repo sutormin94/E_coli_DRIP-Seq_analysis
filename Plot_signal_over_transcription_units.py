@@ -29,11 +29,11 @@ from pandas import DataFrame
 
 
 #Path to the working directory.
-PWD='C:\Sutor\Science\E_coli_DRIP-Seq\Data_analysis\Signal_over_TUs'
+PWD='C:\\Users\sutor\OneDrive\ThinkPad_working\Sutor\Science\E_coli_DRIP-Seq\Data_analysis\Signal_over_TUs_2\\'
 #Name of the signal to plotted (protein or smth.).
-Signal_name='DRIP-Seq_combined_pictures'
+Signal_name='DRIP_Seq_combined_pictures'
 #Half-window width will be used to smooth signal.
-Sm_window=100
+Sm_window=500
 #Dictionary of pathes to input WIG data.
 Wig_data_in_dict_operons={'All operons F'  : 'C:\Sutor\Science\E_coli_DRIP-Seq\Data_analysis\Signal_over_TUs\Signal_wig\All_operons_no_rRNA_lacI_cat\\Signal_DRIP_CTD_minus_Rif_minus_fw_over_All_operons_no_rRNA_lacI_cat_width_15000bp_gb_5000bp.wig',
                           'All operons R'  : 'C:\Sutor\Science\E_coli_DRIP-Seq\Data_analysis\Signal_over_TUs\Signal_wig\All_operons_no_rRNA_lacI_cat\\Signal_DRIP_CTD_minus_Rif_minus_rv_over_All_operons_no_rRNA_lacI_cat_width_15000bp_gb_5000bp.wig',
@@ -87,6 +87,20 @@ Wig_data_in_dict_transcripts={'All TUs CTD-Rif-' : 'C:\Sutor\Science\Signal_over
                               'tRNA 49 CTD+Rif+' : 'C:\Sutor\Science\Signal_over_TUs\All_combinations_for_TopA\Signal_of_TUs_wig\\tRNA_49\Signal_TopA_CTD+Rif+_av_2_3_over_tRNA_49_width_15000bp_gb_5000bp.wig'                              
                               }
 
+Wig_drip_data_in_dict_transcripts={'ATU no tRNA, rRNA CTD-Rif-' : PWD + 'Signal_of_TUs_wig_subtr\DRIP_Seq_CTD_minus_Rif_minus_metagene_ATU_control_subtr.wig', 
+                                   'ATU no tRNA, rRNA CTD-Rif+' : PWD + 'Signal_of_TUs_wig_subtr\DRIP_Seq_CTD_minus_Rif_plus_metagene_ATU_control_subtr.wig', 
+                                   'ATU no tRNA, rRNA CTD+Rif-' : PWD + 'Signal_of_TUs_wig_subtr\DRIP_Seq_CTD_plus_Rif_minus_metagene_ATU_control_subtr.wig', 
+                                   'ATU no tRNA, rRNA CTD+Rif+' : PWD + 'Signal_of_TUs_wig_subtr\DRIP_Seq_CTD_plus_Rif_plus_metagene_ATU_control_subtr.wig',                                                              
+                                   'HETU 200 CTD-Rif-' :          PWD + 'Signal_of_TUs_wig_subtr\DRIP_Seq_CTD_minus_Rif_minus_metagene_HETU_control_subtr.wig',
+                                   'HETU 200 CTD-Rif+' :          PWD + 'Signal_of_TUs_wig_subtr\DRIP_Seq_CTD_minus_Rif_plus_metagene_HETU_control_subtr.wig',
+                                   'HETU 200 CTD+Rif-' :          PWD + 'Signal_of_TUs_wig_subtr\DRIP_Seq_CTD_plus_Rif_minus_metagene_HETU_control_subtr.wig',
+                                   'HETU 200 CTD+Rif+' :          PWD + 'Signal_of_TUs_wig_subtr\DRIP_Seq_CTD_plus_Rif_plus_metagene_HETU_control_subtr.wig',                              
+                                   'LETU 200 CTD-Rif-' :          PWD + 'Signal_of_TUs_wig_subtr\DRIP_Seq_CTD_minus_Rif_minus_metagene_LETU_control_subtr.wig',
+                                   'LETU 200 CTD-Rif+' :          PWD + 'Signal_of_TUs_wig_subtr\DRIP_Seq_CTD_minus_Rif_plus_metagene_LETU_control_subtr.wig',
+                                   'LETU 200 CTD+Rif-' :          PWD + 'Signal_of_TUs_wig_subtr\DRIP_Seq_CTD_plus_Rif_minus_metagene_LETU_control_subtr.wig',
+                                   'LETU 200 CTD+Rif+' :          PWD + 'Signal_of_TUs_wig_subtr\DRIP_Seq_CTD_plus_Rif_plus_metagene_LETU_control_subtr.wig',                              
+                                   }
+
 '''
 'HETU no tRNA, rRNA 317 CTD-Rif-' : 'D:\Sutormin_data\D_Sutormin\Science\Signal_over_TUs\All_combinations_for_TopA\Signal_of_TUs_wig\HE_TU_317_no_tRNA_rRNA_ompX\Signal_TopoA -Rif_over_HE_TU_317_no_tRNA_rRNA_ompX_width_15000bp_gb_5000bp.wig', 
 'HETU no tRNA, rRNA 317 CTD-Rif+' : 'D:\Sutormin_data\D_Sutormin\Science\Signal_over_TUs\All_combinations_for_TopA\Signal_of_TUs_wig\HE_TU_317_no_tRNA_rRNA_ompX\Signal_TopoA +Rif_over_HE_TU_317_no_tRNA_rRNA_ompX_width_15000bp_gb_5000bp.wig', 
@@ -109,7 +123,7 @@ Wig_data_in_dict_transcripts_gyrase={'All TUs' : 'F:\Signal_over_TUs\Transcript-
                                      'LETU 244 no ybiI Rif' : 'F:\Signal_over_TUs\Transcript-based\Signal_of_TUs_wig\LE_TU_244_no_ybiI\Signal_Gyrase Cfx +Rif_over_LE_TU_244_no_ybiI_width_15000bp_gb_5000bp.wig',                           
                                      }
 #Set type to choose plotting parameters: genes, operons or transcripts.
-Set_type="operons"
+Set_type="transcripts"
 
 #######
 #Checks if directory exists and if not creates.
@@ -182,7 +196,12 @@ def plot_FE_all_expression_gg_Rif_no_Rif(wig_in_dict, sm_window, output_path, se
                'rRNA 7 CTD-Rif-' : 7, 'rRNA 7 CTD-Rif+' : 7, 'rRNA 7 CTD+Rif-' : 7, 'rRNA 7 CTD+Rif+' : 7, 
                'tRNA 49 CTD-Rif-' : 39, 'tRNA 49 CTD-Rif+' : 39, 'tRNA 49 CTD+Rif-' : 39,'tRNA 49 CTD+Rif+' : 39,
                'All operons F' : 2321, 'All operons R' : 2321, 'All operons LF' : 1091, 'All operons LR' : 1091, 'All operons RF' : 1230, 'All operons RR' : 1230,
-               'All genes F' : 4088, 'All genes R' : 4088, 'All genes LF' : 1928, 'All genes LR' : 1928, 'All genes RF' : 2159, 'All genes RR' : 2159}
+               'All genes F' : 4088, 'All genes R' : 4088, 'All genes LF' : 1928, 'All genes LR' : 1928, 'All genes RF' : 2159, 'All genes RR' : 2159,
+               'ATU no tRNA, rRNA CTD-Rif-' : 1482, 'ATU no tRNA, rRNA CTD-Rif+' : 1482, 'ATU no tRNA, rRNA CTD+Rif-' : 1482, 'ATU no tRNA, rRNA CTD+Rif+' : 1482,
+               'HETU 200 CTD-Rif-' : 185, 'HETU 200 CTD-Rif+' : 185, 'HETU 200 CTD+Rif-' : 185, 'HETU 200 CTD+Rif+' : 185, 
+               'LETU 200 CTD-Rif-' : 190, 'LETU 200 CTD-Rif+' : 190, 'LETU 200 CTD+Rif-' : 190, 'LETU 200 CTD+Rif+' : 190,}    
+    
+
     #FE averaged WIG parsing
     dict_of_wigs={}
     win_width=15000
@@ -251,12 +270,12 @@ def plot_FE_all_expression_gg_Rif_no_Rif(wig_in_dict, sm_window, output_path, se
         #plot1.plot(positions,  np.array(dict_of_wigs['LETU 244 no ybiI CTD+Rif-'])-0.25, linestyle='-', color='#757d8b', linewidth=1.5, alpha=1, label=f'LETU CTD+Rif- ({TU_sets_v["LETU 244 no ybiI CTD-Rif-"]})', zorder=6) #Def linewidth=1.5; #R123 -0.1; R123 +0.15; R123 -0.15
         #plot1.plot(positions,  np.array(dict_of_wigs['LETU 244 no ybiI CTD+Rif+'])-0.25, linestyle='-.', color='#757d8b', linewidth=1, alpha=1, label=f'LETU CTD+Rif+ ({TU_sets_v["LETU 244 no ybiI CTD-Rif-"]})', zorder=5) #Def linewidth=1; #R23 -0.2; R23 +0.25; R23 -0.25           
         #LETU, no ybiI, no appY
-        plot1.plot(positions,  np.array(dict_of_wigs['LETU 248 no ybiI no appY CTD-Rif-'])-0.05, linestyle='-', color='#B6B8BD', linewidth=3, alpha=1, label=f'LETU CTD-/Rif- ({TU_sets_v["LETU 248 no ybiI no appY CTD-Rif-"]})', zorder=6) #Def linewidth=1.5; #R123 -0; R12 +0.03; R3 -0.07
+        #plot1.plot(positions,  np.array(dict_of_wigs['LETU 248 no ybiI no appY CTD-Rif-'])-0.05, linestyle='-', color='#B6B8BD', linewidth=3, alpha=1, label=f'LETU CTD-/Rif- ({TU_sets_v["LETU 248 no ybiI no appY CTD-Rif-"]})', zorder=6) #Def linewidth=1.5; #R123 -0; R12 +0.03; R3 -0.07
         #plot1.plot(positions,  np.array(dict_of_wigs['LETU 248 no ybiI no appY CTD-Rif+'])-0.12, linestyle='--', color='#B6B8BD', linewidth=5, alpha=1.5, label=f'LETU CTD-/Rif+ ({TU_sets_v["LETU 248 no ybiI no appY CTD-Rif-"]})', zorder=5) #Def linewidth=0.8; #R123 -0.1; R12 +0; R3 -0.45    
         #plot1.plot(positions,  np.array(dict_of_wigs['LETU 248 no ybiI no appY CTD+Rif-'])-0.25, linestyle='-', color='#757d8b', linewidth=1.5, alpha=1, label=f'LETU CTD+Rif- ({TU_sets_v["LETU 244 no ybiI no appY CTD-Rif-"]})', zorder=6) #Def linewidth=1.5; #R123 -0.1; R123 +0.15; R123 -0.15
         #plot1.plot(positions,  np.array(dict_of_wigs['LETU 248 no ybiI no appY CTD+Rif+'])-0.25, linestyle='-.', color='#757d8b', linewidth=1, alpha=1, label=f'LETU CTD+Rif+ ({TU_sets_v["LETU 244 no ybiI no appY CTD-Rif-"]})', zorder=5) #Def linewidth=1; #R23 -0.2; R23 +0.25; R23 -0.25         
         #All_TUs
-        plot1.plot(positions, np.array(dict_of_wigs['All TUs CTD-Rif-'])-0.05, linestyle='-', color='#333738', linewidth=3, alpha=2, label=f'All TUs CTD-/Rif- ({TU_sets_v["All TUs CTD-Rif-"]})', zorder=10) #Def linewidth=2; #R123 -0.07; R12 -0.01; R3 -0.17
+        #plot1.plot(positions, np.array(dict_of_wigs['All TUs CTD-Rif-'])-0.05, linestyle='-', color='#333738', linewidth=3, alpha=2, label=f'All TUs CTD-/Rif- ({TU_sets_v["All TUs CTD-Rif-"]})', zorder=10) #Def linewidth=2; #R123 -0.07; R12 -0.01; R3 -0.17
         #plot1.plot(positions, np.array(dict_of_wigs['All TUs CTD-Rif+'])-0.12, linestyle='--', color='#333738', linewidth=5, alpha=0.8, label=f'All TUs CTD-/Rif+ ({TU_sets_v["All TUs CTD-Rif-"]})', zorder=9) #Def linewidth=0.8; #R123 -0.15; R12 +0; R3 -0.42
         #plot1.plot(positions, np.array(dict_of_wigs['All TUs CTD+Rif-'])-0.27, linestyle='-', color='#b08642', linewidth=1.5, alpha=0.8, label=f'All TUs CTD+Rif- ({TU_sets_v["All TUs CTD-Rif-"]})', zorder=10) #Def linewidth=2; #R123 -0.25; R123 -0.25; R123 -0.27
         #plot1.plot(positions, np.array(dict_of_wigs['All TUs CTD+Rif+'])-0.24, linestyle='--', color='#e4d1b4', linewidth=1, alpha=0.8, label=f'All TUs CTD+Rif+ ({TU_sets_v["All TUs CTD-Rif-"]})', zorder=9) #Def linewidth=1; #R23 -0.25; R23 -0.22; R23 -0.24
@@ -271,7 +290,7 @@ def plot_FE_all_expression_gg_Rif_no_Rif(wig_in_dict, sm_window, output_path, se
         #plot1.plot(positions, np.array(dict_of_wigs['HETU 323 CTD+Rif-'])-0.28, linestyle='-', color='#b08642', linewidth=1.5, alpha=0.8, label=f'HETU CTD+Rif- ({TU_sets_v["HETU 323 CTD-Rif-"]})', zorder=8) #R123 -0.20; R123 -0.25; R123 -0.28
         #plot1.plot(positions, np.array(dict_of_wigs['HETU 323 CTD+Rif+'])-0.24, linestyle='--', color='#e4d1b4', linewidth=1, alpha=1, label=f'HETU CTD+Rif+ ({TU_sets_v["HETU 323 CTD-Rif-"]})', zorder=7) #R23 -0.15; R23 -0.20; R23 -0.24
         #HETU, no ompX
-        plot1.plot(positions, np.array(dict_of_wigs['HETU 321 no ompX CTD-Rif-'])-0.05, linestyle='-', color='#b08642', linewidth=3, alpha=0.8, label=f'HETU CTD-/Rif- ({TU_sets_v["HETU 321 no ompX CTD-Rif-"]})', zorder=8) #Def linewidth=1.5 #R123 -0.05; R12 -0.05; R3 -0.25
+        #plot1.plot(positions, np.array(dict_of_wigs['HETU 321 no ompX CTD-Rif-'])-0.05, linestyle='-', color='#b08642', linewidth=3, alpha=0.8, label=f'HETU CTD-/Rif- ({TU_sets_v["HETU 321 no ompX CTD-Rif-"]})', zorder=8) #Def linewidth=1.5 #R123 -0.05; R12 -0.05; R3 -0.25
         #plot1.plot(positions, np.array(dict_of_wigs['HETU 321 no ompX CTD-Rif+'])-0.12, linestyle='--', color='#b08642', linewidth=5, alpha=1, label=f'HETU CTD-/Rif+ ({TU_sets_v["HETU 321 no ompX CTD-Rif-"]})', zorder=7) #Def linewidth=0.8 #R123 -0.05; R12 -0.03; R3 -0.32
         #plot1.plot(positions, np.array(dict_of_wigs['HETU 321 no ompX CTD+Rif-'])-0.25, linestyle='-', color='#b08642', linewidth=1.5, alpha=0.8, label=f'HETU CTD+Rif- ({TU_sets_v["HETU 321 no ompX CTD-Rif-"]})', zorder=8) #Def linewidth=1.5 #R123 -0.20; R123 -0.25; R123 -0.28
         #plot1.plot(positions, np.array(dict_of_wigs['HETU 321 no ompX CTD+Rif+'])-0.25, linestyle='-.', color='#b08642', linewidth=1, alpha=1, label=f'HETU CTD+Rif+ ({TU_sets_v["HETU 321 no ompX CTD-Rif-"]})', zorder=7) #Def linewidth=1 #R23 -0.15; R23 -0.20; R23 -0.24 
@@ -285,11 +304,22 @@ def plot_FE_all_expression_gg_Rif_no_Rif(wig_in_dict, sm_window, output_path, se
         #plot1.plot(positions, np.array(dict_of_wigs['tRNA 49 CTD-Rif+'])-0.05, linestyle='--', color='#333738', linewidth=1, alpha=1, label=f'tRNA CTD-Rif+ ({TU_sets_v["tRNA 49 CTD-Rif-"]})', zorder=7) #Def linewidth=1 #R123 -0.1; R12 -0.05; R3 -0.05
         #plot1.plot(positions, np.array(dict_of_wigs['tRNA 49 CTD+Rif-'])-0.25, linestyle='-', color='#b08642', linewidth=1.5, alpha=0.8, label=f'tRNA CTD+Rif- ({TU_sets_v["tRNA 49 CTD-Rif-"]})', zorder=8) #Def linewidth=1.5 #R123 -0.2; R123 -0.25; R123 -0.25
         #plot1.plot(positions, np.array(dict_of_wigs['tRNA 49 CTD+Rif+'])-0.15, linestyle='--', color='#e4d1b4', linewidth=1, alpha=1, label=f'tRNA CTD+Rif+ ({TU_sets_v["tRNA 49 CTD-Rif-"]})', zorder=7) #Def linewidth=1 #R23 -0.1; R23 -0.15; R23 -0.15   
-                     
+        #DRIP-Seq data.
+        plot1.plot(positions, np.array(dict_of_wigs['HETU 200 CTD-Rif-']), linestyle='-', color='#b08642', linewidth=2, alpha=1, label=f'HETU -CTD/-Rif ({TU_sets_v["HETU 200 CTD-Rif-"]})', zorder=2) #Def linewidth=1.5 #R123 -0.05; R12 -0.05; R3 -0.25
+        plot1.plot(positions, np.array(dict_of_wigs['HETU 200 CTD-Rif+']), linestyle='-', color='#b08642', linewidth=2, alpha=1, label=f'HETU -CTD/+Rif ({TU_sets_v["HETU 200 CTD-Rif-"]})', zorder=3) #Def linewidth=0.8 #R123 -0.05; R12 -0.03; R3 -0.32
+        plot1.plot(positions, np.array(dict_of_wigs['HETU 200 CTD+Rif-']), linestyle='-', color='#b08642', linewidth=2, alpha=1, label=f'HETU +CTD/-Rif ({TU_sets_v["HETU 200 CTD-Rif-"]})', zorder=1) #Def linewidth=1.5 #R123 -0.20; R123 -0.25; R123 -0.28
+        plot1.plot(positions, np.array(dict_of_wigs['HETU 200 CTD+Rif+']), linestyle='-', color='#b08642', linewidth=2, alpha=1, label=f'HETU +CTD/+Rif ({TU_sets_v["HETU 200 CTD-Rif-"]})', zorder=4) #Def linewidth=1 #R23 -0.15; R23 -0.20; R23 -0.24 
+        
+        #plot1.plot(positions, np.array(dict_of_wigs['LETU 200 CTD-Rif-']), linestyle='-', color='#b08642', linewidth=2, alpha=1, label=f'LETU -CTD/-Rif ({TU_sets_v["LETU 200 CTD-Rif-"]})', zorder=2) #Def linewidth=1.5 #R123 -0.05; R12 -0.05; R3 -0.25
+        #plot1.plot(positions, np.array(dict_of_wigs['LETU 200 CTD-Rif+']), linestyle='-', color='#b08642', linewidth=2, alpha=1, label=f'LETU -CTD/+Rif ({TU_sets_v["LETU 200 CTD-Rif-"]})', zorder=3) #Def linewidth=0.8 #R123 -0.05; R12 -0.03; R3 -0.32
+        #plot1.plot(positions, np.array(dict_of_wigs['LETU 200 CTD+Rif-']), linestyle='-', color='#b08642', linewidth=2, alpha=1, label=f'LETU +CTD/-Rif ({TU_sets_v["LETU 200 CTD-Rif-"]})', zorder=1) #Def linewidth=1.5 #R123 -0.20; R123 -0.25; R123 -0.28
+        #plot1.plot(positions, np.array(dict_of_wigs['LETU 200 CTD+Rif+']), linestyle='-', color='#b08642', linewidth=2, alpha=1, label=f'LETU +CTD/+Rif ({TU_sets_v["LETU 200 CTD-Rif-"]})', zorder=4) #Def linewidth=1 #R23 -0.15; R23 -0.20; R23 -0.24 
+        
+        
     #plot1.set_ylim(0.75, 1.6) #(0.75, 1.6) for FE; (-0.6, 0.5) for ded FE
     ticks=np.arange(-win_width,win_width+length+1,length).tolist()
-    plot1.set_xticks(ticks+list(range(-300, 200, 20))) #Start
-    #plot1.set_xticks(ticks+list(range(4800, 5300, 20))) #End
+    #plot1.set_xticks(ticks+list(range(-300, 200, 20))) #Start
+    plot1.set_xticks(ticks+list(range(4800, 5300, 20))) #End
     plot1.set_xticks(ticks, minor='False')
     ticks_lables=ticks
     ticks_lables[ticks.index(0)]='TS'
@@ -309,7 +339,7 @@ def plot_FE_all_expression_gg_Rif_no_Rif(wig_in_dict, sm_window, output_path, se
     plot1.set_xlabel('Distance, bp', size=20)
     plot1.set_ylabel(f'{set_name} fold enrichment', size=20)
     plot1.set_title(f'{set_name} signal over {set_type}', size=20)     
-    plt.savefig(f'{output_path}\\{set_name}_FE_over_{set_type}_Rif_plus_CTD_minus_Rif_minus_CTD_minus_rtRNA_Start_{win_width}bp_nd_with_body_{length}_bp.png', dpi=400, figsize=(10, 6))  #Def size - 10, 6; Closer look - 3, 6
+    plt.savefig(f'{output_path}\\HETU_{set_name}_over_{set_type}_Start_{win_width}bp_nd_with_body_{length}_bp.png', dpi=400, figsize=(10, 6))  #Def size - 10, 6; Closer look - 3, 6
     #plt.show()
     plt.close()     
     
@@ -320,7 +350,7 @@ def plot_FE_all_expression_gg_Rif_no_Rif(wig_in_dict, sm_window, output_path, se
     positions_sm=np.arange(-win_width+sm_window, win_width+length-(sm_window-1), 1)  
         
     #Plot smoothed FE over genes.
-    plt.figure(figsize=(10, 6), dpi=100)
+    plt.figure(figsize=(7.5, 4.5), dpi=100)
     plot1=plt.subplot(111)
     ##Genes below
     if set_type=='genes':
@@ -372,12 +402,12 @@ def plot_FE_all_expression_gg_Rif_no_Rif(wig_in_dict, sm_window, output_path, se
         #plot1.plot(positions_sm,  np.array(dict_of_wigs_sm['LETU 244 no ybiI CTD+Rif-'])-0.25, linestyle='-', color='#757d8b', linewidth=1.5, alpha=1, label=f'LETU CTD+Rif- ({TU_sets_v["LETU 244 no ybiI CTD-Rif-"]})', zorder=6)
         #plot1.plot(positions_sm,  np.array(dict_of_wigs_sm['LETU 244 no ybiI CTD+Rif+'])-0.25, linestyle='-.', color='#757d8b', linewidth=1, alpha=1, label=f'LETU CTD+Rif+ ({TU_sets_v["LETU 244 no ybiI CTD-Rif-"]})', zorder=5)  
         #LETU, no ybiI, no appY
-        plot1.plot(positions_sm,  np.array(dict_of_wigs_sm['LETU 248 no ybiI no appY CTD-Rif-'])-0.03, linestyle='-', color='#B6B8BD', linewidth=1.5, alpha=1, label=f'LETU CTD-/Rif- ({TU_sets_v["LETU 248 no ybiI no appY CTD-Rif-"]})', zorder=6)
+        #plot1.plot(positions_sm,  np.array(dict_of_wigs_sm['LETU 248 no ybiI no appY CTD-Rif-'])-0.03, linestyle='-', color='#B6B8BD', linewidth=1.5, alpha=1, label=f'LETU CTD-/Rif- ({TU_sets_v["LETU 248 no ybiI no appY CTD-Rif-"]})', zorder=6)
         #plot1.plot(positions_sm,  np.array(dict_of_wigs_sm['LETU 248 no ybiI no appY CTD-Rif+'])-0.1, linestyle='--', color='#B6B8BD', linewidth=0.8, alpha=1, label=f'LETU CTD-/Rif+ ({TU_sets_v["LETU 248 no ybiI no appY CTD-Rif-"]})', zorder=5)
         #plot1.plot(positions_sm,  np.array(dict_of_wigs_sm['LETU 248 no ybiI no appY CTD+Rif-'])-0.25, linestyle='-', color='#757d8b', linewidth=1.5, alpha=1, label=f'LETU CTD+Rif- ({TU_sets_v["LETU 248 no ybiI no appy CTD-Rif-"]})', zorder=6)
         #plot1.plot(positions_sm,  np.array(dict_of_wigs_sm['LETU 248 no ybiI no appY CTD+Rif+'])-0.25, linestyle='-.', color='#757d8b', linewidth=1, alpha=1, label=f'LETU CTD+Rif+ ({TU_sets_v["LETU 248 no ybiI no appY CTD-Rif-"]})', zorder=5)          
         #All_TUs
-        plot1.plot(positions_sm, np.array(dict_of_wigs_sm['All TUs CTD-Rif-'])-0.03, linestyle='-', color='#333738', linewidth=2, alpha=2, label=f'All TUs CTD-Rif- ({TU_sets_v["All TUs CTD-Rif-"]})', zorder=10)
+        #plot1.plot(positions_sm, np.array(dict_of_wigs_sm['All TUs CTD-Rif-'])-0.03, linestyle='-', color='#333738', linewidth=2, alpha=2, label=f'All TUs CTD-Rif- ({TU_sets_v["All TUs CTD-Rif-"]})', zorder=10)
         #plot1.plot(positions_sm, np.array(dict_of_wigs_sm['All TUs CTD-Rif+'])-0.1, linestyle='--', color='#333738', linewidth=1, alpha=0.8, label=f'All TUs CTD-Rif+ ({TU_sets_v["All TUs CTD-Rif-"]})', zorder=9)
         #plot1.plot(positions_sm, np.array(dict_of_wigs_sm['All TUs CTD+Rif-'])-0.27, linestyle='-', color='#b08642', linewidth=1.5, alpha=0.8, label=f'All TUs CTD+Rif- ({TU_sets_v["All TUs CTD-Rif-"]})', zorder=10)
         #plot1.plot(positions_sm, np.array(dict_of_wigs_sm['All TUs CTD+Rif+'])-0.24, linestyle='--', color='#e4d1b4', linewidth=1, alpha=0.8, label=f'All TUs CTD+Rif+ ({TU_sets_v["All TUs CTD-Rif-"]})', zorder=9)        
@@ -392,7 +422,7 @@ def plot_FE_all_expression_gg_Rif_no_Rif(wig_in_dict, sm_window, output_path, se
         #plot1.plot(positions_sm, np.array(dict_of_wigs_sm['HETU 323 CTD+Rif-'])-0.28, linestyle='-', color='#b08642', linewidth=1.5, alpha=0.8, label=f'HETU CTD+Rif- ({TU_sets_v["HETU 323 CTD-Rif-"]})', zorder=8)
         #plot1.plot(positions_sm, np.array(dict_of_wigs_sm['HETU 323 CTD+Rif+'])-0.24, linestyle='--', color='#e4d1b4', linewidth=1, alpha=1, label=f'HETU CTD+Rif+ ({TU_sets_v["HETU 323 CTD-Rif-"]})', zorder=7)          
         #HETU, no ompX
-        plot1.plot(positions_sm, np.array(dict_of_wigs_sm['HETU 321 no ompX CTD-Rif-'])-0.03, linestyle='-', color='#b08642', linewidth=1.5, alpha=0.8, label=f'HETU CTD-/Rif- ({TU_sets_v["HETU 321 no ompX CTD-Rif-"]})', zorder=8)
+        #plot1.plot(positions_sm, np.array(dict_of_wigs_sm['HETU 321 no ompX CTD-Rif-'])-0.03, linestyle='-', color='#b08642', linewidth=1.5, alpha=0.8, label=f'HETU CTD-/Rif- ({TU_sets_v["HETU 321 no ompX CTD-Rif-"]})', zorder=8)
         #plot1.plot(positions_sm, np.array(dict_of_wigs_sm['HETU 321 no ompX CTD-Rif+'])-0.1, linestyle='--', color='#b08642', linewidth=0.8, alpha=1, label=f'HETU CTD-/Rif+ ({TU_sets_v["HETU 321 no ompX CTD-Rif-"]})', zorder=7)
         #plot1.plot(positions_sm, np.array(dict_of_wigs_sm['HETU 321 no ompX CTD+Rif-'])-0.25, linestyle='-', color='#b08642', linewidth=1.5, alpha=0.8, label=f'HETU CTD+Rif- ({TU_sets_v["HETU 321 no ompX CTD-Rif-"]})', zorder=8)
         #plot1.plot(positions_sm, np.array(dict_of_wigs_sm['HETU 321 no ompX CTD+Rif+'])-0.25, linestyle='-.', color='#b08642', linewidth=1, alpha=1, label=f'HETU CTD+Rif+ ({TU_sets_v["HETU 321 no ompX CTD-Rif-"]})', zorder=7)        
@@ -407,37 +437,73 @@ def plot_FE_all_expression_gg_Rif_no_Rif(wig_in_dict, sm_window, output_path, se
         #plot1.plot(positions_sm, np.array(dict_of_wigs_sm['tRNA 49 CTD+Rif-'])-0.25, linestyle='-', color='#b08642', linewidth=1.5, alpha=0.8, label=f'tRNA CTD+Rif- ({TU_sets_v["tRNA 49 CTD-Rif-"]})', zorder=8) #Def linewidth=1.5
         #plot1.plot(positions_sm, np.array(dict_of_wigs_sm['tRNA 49 CTD+Rif+'])-0.15, linestyle='--', color='#e4d1b4', linewidth=1, alpha=1, label=f'tRNA CTD+Rif+ ({TU_sets_v["tRNA 49 CTD-Rif-"]})', zorder=7) #Def linewidth=1           
         
+        #DRIP-Seq data.
+        plot1.plot(positions_sm, np.array(dict_of_wigs_sm['HETU 200 CTD-Rif-']), linestyle='--', color='#2b0d07', linewidth=2, alpha=1, label=f'-CTD/-Rif ({TU_sets_v["HETU 200 CTD-Rif-"]})', zorder=2) #Def linewidth=1.5 #R123 -0.05; R12 -0.05; R3 -0.25
+        plot1.plot(positions_sm, np.array(dict_of_wigs_sm['HETU 200 CTD-Rif+']), linestyle='-.', color='#2b0d07', linewidth=1, alpha=1, label=f'-CTD/+Rif ({TU_sets_v["HETU 200 CTD-Rif-"]})', zorder=3) #Def linewidth=0.8 #R123 -0.05; R12 -0.03; R3 -0.32
+        plot1.plot(positions_sm, np.array(dict_of_wigs_sm['HETU 200 CTD+Rif-']), linestyle='-', color='#2b0d07', linewidth=2, alpha=1, label=f'+CTD/-Rif ({TU_sets_v["HETU 200 CTD-Rif-"]})', zorder=1) #Def linewidth=1.5 #R123 -0.20; R123 -0.25; R123 -0.28
+        plot1.plot(positions_sm, np.array(dict_of_wigs_sm['HETU 200 CTD+Rif+']), linestyle=':', color='#2b0d07', linewidth=1, alpha=1, label=f'+CTD/+Rif ({TU_sets_v["HETU 200 CTD-Rif-"]})', zorder=4) #Def linewidth=1 #R23 -0.15; R23 -0.20; R23 -0.24 
+        
+        plot1.fill_between(positions_sm, np.array(dict_of_wigs_sm['HETU 200 CTD+Rif-']), 0, where=np.array(dict_of_wigs_sm['HETU 200 CTD+Rif-'])<0, color="#76e8ff")
+        plot1.fill_between(positions_sm, np.array(dict_of_wigs_sm['HETU 200 CTD+Rif-']), 0, where=np.array(dict_of_wigs_sm['HETU 200 CTD+Rif-'])>0, color="#ffa399")
+        plot1.fill_between(positions_sm, np.array(dict_of_wigs_sm['HETU 200 CTD-Rif-']), 0, where=np.array(dict_of_wigs_sm['HETU 200 CTD-Rif-'])<0, color="#4242ff")
+        plot1.fill_between(positions_sm, np.array(dict_of_wigs_sm['HETU 200 CTD-Rif-']), 0, where=np.array(dict_of_wigs_sm['HETU 200 CTD-Rif-'])>0, color="#ff3639")
+        
+        #plot1.plot(positions_sm, np.array(dict_of_wigs_sm['LETU 200 CTD-Rif-']), linestyle='--', color='#2b0d07', linewidth=2, alpha=1, label=f'-CTD/-Rif ({TU_sets_v["LETU 200 CTD-Rif-"]})', zorder=2) #Def linewidth=1.5 #R123 -0.05; R12 -0.05; R3 -0.25
+        #plot1.plot(positions_sm, np.array(dict_of_wigs_sm['LETU 200 CTD-Rif+']), linestyle='-.', color='#2b0d07', linewidth=1, alpha=1, label=f'-CTD/+Rif ({TU_sets_v["LETU 200 CTD-Rif-"]})', zorder=3) #Def linewidth=0.8 #R123 -0.05; R12 -0.03; R3 -0.32
+        #plot1.plot(positions_sm, np.array(dict_of_wigs_sm['LETU 200 CTD+Rif-']), linestyle='-', color='#2b0d07', linewidth=2, alpha=1, label=f'+CTD/-Rif ({TU_sets_v["LETU 200 CTD-Rif-"]})', zorder=1) #Def linewidth=1.5 #R123 -0.20; R123 -0.25; R123 -0.28
+        #plot1.plot(positions_sm, np.array(dict_of_wigs_sm['LETU 200 CTD+Rif+']), linestyle=':', color='#2b0d07', linewidth=1, alpha=1, label=f'+CTD/+Rif ({TU_sets_v["LETU 200 CTD-Rif-"]})', zorder=4) #Def linewidth=1 #R23 -0.15; R23 -0.20; R23 -0.24 
+        #
+        #plot1.fill_between(positions_sm, np.array(dict_of_wigs_sm['LETU 200 CTD+Rif-']), 0, where=np.array(dict_of_wigs_sm['LETU 200 CTD+Rif-'])<0, color="#76e8ff")
+        #plot1.fill_between(positions_sm, np.array(dict_of_wigs_sm['LETU 200 CTD+Rif-']), 0, where=np.array(dict_of_wigs_sm['LETU 200 CTD+Rif-'])>0, color="#ffa399")
+        #plot1.fill_between(positions_sm, np.array(dict_of_wigs_sm['LETU 200 CTD-Rif-']), 0, where=np.array(dict_of_wigs_sm['LETU 200 CTD-Rif-'])<0, color="#4242ff")
+        #plot1.fill_between(positions_sm, np.array(dict_of_wigs_sm['LETU 200 CTD-Rif-']), 0, where=np.array(dict_of_wigs_sm['LETU 200 CTD-Rif-'])>0, color="#ff3639")
+        
+        
+        
+        
     #plot1.set_ylim(0.75, 1.6) #(0.75, 1.6) for FE; (-0.6, 0.5) for ded FE
     ticks=np.arange(-win_width,win_width+length+1,length).tolist()
     plot1.set_xticks(ticks)
     ticks_lables=ticks
-    ticks_lables[ticks.index(0)]='TS'
-    ticks_lables[ticks.index(length)]='TE'
-    ticks_lables1=ticks_lables[:ticks_lables.index('TE')+1]+np.arange(length,win_width+1,length).tolist()
+    ticks_lables[ticks.index(0)]='$TU_{start}$'
+    ticks_lables[ticks.index(length)]='$TU_{end}$'
+    ticks_lables1=ticks_lables[:ticks_lables.index('$TU_{end}$')+1]+np.arange(length,win_width+1,length).tolist()
     plot1.set_xticklabels(ticks_lables1)
+    plot1.tick_params(axis='x', which='major', labelsize=19, pad=1)
     plot1.set_xticks([0, length], minor='True')
+    plot1.axhline(0, color='black', linestyle='-', alpha=0.5, linewidth=1, zorder=20)
     #plot1.grid(axis='x', which='minor', color='black', linestyle='--', alpha=0.7, linewidth=1)  
-    #plot1.axvline(0, color='black', linestyle='--', alpha=0.7, linewidth=1)
-    #plot1.axvline(length, color='black', linestyle='--', alpha=0.7, linewidth=1)    
-    plot1.set_yticks([1], minor='True')
+    plot1.axvline(0, color='black', linestyle='-', alpha=0.5, linewidth=1, zorder=21)
+    plot1.axvline(length, color='black', linestyle='-', alpha=0.5, linewidth=1, zorder=22)    
+    #plot1.set_yticks([1], minor='True')
+    plot1.tick_params(axis='y', which='major', labelsize=19, pad=2)
     #plot1.grid(axis='y', which='minor', color='grey', linestyle='--', alpha=0.7, linewidth=1)   
     #plot1.axhline(1, color='black', linestyle='--', alpha=0.7, linewidth=1)
-    plot1.legend(fontsize=15, frameon=False)    
-    plot1.set_xlabel('Distance, bp', size=20)
-    plot1.set_ylabel(f'{set_name} fold enrichment', size=20)
-    plot1.set_title(f'{set_name} signal over {set_type}', size=20)     
-    plt.savefig(f'{output_path}\\{set_name}_FE_over_{set_type}_Rif_plus_CTD_minus_Rif_minus_CTD_minus_smoothed_rtRNA_{win_width}bp_nd_with_body_{length}bp_smoothed_{2*sm_window}bp.png', dpi=400, figsize=(10, 6), transparent=True)   
+    plot1.xaxis.tick_top()
+    plot1.spines["right"].set_visible(False)
+    plot1.spines["bottom"].set_visible(False)
+    plot1.spines["left"].set_linewidth(2)
+    plot1.spines["top"].set_linewidth(2)
+    plot1.legend(fontsize=18, frameon=False, labelspacing=0.35, handlelength=0.7, handletextpad=0.2, loc="upper right", bbox_to_anchor=(0.44,0.49))    
+    #plot1.set_xlabel('Distance, bp', size=20)
+    #plot1.set_ylabel(f'{set_name} fold enrichment', size=20)
+    plot1.set_ylabel('Coverage depth, normalized', size=20, labelpad=11)
+    plot1.set_title('Distance, bp', size=22, pad=15)  
+    #plot1.set_title(f'{set_name} signal over {set_type}', size=20)  
+    plt.xlim([-12000,17000])
+    plt.ylim([-70,42])
+    plt.tight_layout()
+    plt.savefig(f'{output_path}\\HETU_{set_name}_over_{set_type}_{win_width}bp_nd_with_body_{length}bp_smoothed_{2*sm_window}bp.png', dpi=400, figsize=(7.5, 4.5), transparent=True)   
     #plt.show()
     plt.close()    
     return
-
-
-#DRIP-Seq.
-plot_FE_all_expression_gg_Rif_no_Rif(Wig_data_in_dict_operons, Sm_window, Out_path, Signal_name, 'operons')
-plot_FE_all_expression_gg_Rif_no_Rif(Wig_data_in_dict_genes, Sm_window, Out_path, Signal_name, 'genes')
-
 
 #EcTopoI
 #plot_FE_all_expression_gg_Rif_no_Rif(Wig_data_in_dict_transcripts, Sm_window, Out_path, Signal_name, Set_type)
 #RNA-pol
 #plot_FE_all_expression_gg_Rif_no_Rif(Wig_data_in_dict_transcripts_RNApol, Sm_window, Out_path, Signal_name, Set_type)
+
+#DRIP-Seq.
+#plot_FE_all_expression_gg_Rif_no_Rif(Wig_data_in_dict_operons, Sm_window, Out_path, Signal_name, 'operons')
+#plot_FE_all_expression_gg_Rif_no_Rif(Wig_data_in_dict_genes, Sm_window, Out_path, Signal_name, 'genes')
+plot_FE_all_expression_gg_Rif_no_Rif(Wig_drip_data_in_dict_transcripts, Sm_window, Out_path, Signal_name, 'transcripts')
