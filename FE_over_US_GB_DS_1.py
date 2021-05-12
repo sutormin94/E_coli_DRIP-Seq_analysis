@@ -1,10 +1,11 @@
 ###############################################
-##Dmitry Sutormin, 2019##
-##TopoA ChIP-Seq analysis##
+##Dmitry Sutormin, 2020##
+## DRIP-Seq analysis##
 
 #Script computes Fold Enrichment (FE) over upstream (US)
 #and downstream (DS) regions of transcription units (TUs)
-#and over TUs bodies.
+#and over TUs bodies. 
+#The script is for strand-specific signal.
 ###############################################
 
 #######
