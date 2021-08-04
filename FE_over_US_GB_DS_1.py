@@ -61,6 +61,10 @@ Genes_set_name_8='HETU_no_dps_rfa_200'
 Path_to_annotation_9=TUs_groups_path + 'DY330_RNA-Seq_transcripts_representative_NO_DPS_no_tRNA_rRNA_EP_del_cor_LETU_200.txt'
 Type_of_annot_9='broadPeak'             
 Genes_set_name_9='LETU_no_dps_200'    
+##10##
+Path_to_annotation_10=TUs_groups_path + 'DY330_RNA-Seq_transcripts_representative_NO_DPS_EP_Long_Active_TUs_del_cor.txt'
+Type_of_annot_10='broadPeak'             
+Genes_set_name_10='Long_active_79' 
 
 #Path to the file with regions to be omitted (e.g. deletions).
 Deletions_inpath='C:\\Users\sutor\OneDrive\ThinkPad_working\Sutor\Science\E_coli_DRIP-Seq\Scripts\E_coli_DRIP-Seq_analysis\Additional_genome_features\Deletions_w3110_G_Mu_SGS_extended.broadPeak'
@@ -97,7 +101,7 @@ def Dir_check_create(some_path):
     return
 
 #Path to the output directory.
-Out_path='C:\\Users\sutor\OneDrive\ThinkPad_working\Sutor\Science\E_coli_DRIP-Seq\Data_analysis\Signal_over_TUs_3\\'
+Out_path='C:\\Users\sutor\OneDrive\ThinkPad_working\Sutor\Science\E_coli_DRIP-Seq\Data_analysis\Signal_over_TUs_3_strand_specific_strand_subtr_control_subtr\\'
 
 #Output path.
 def create_out_dirs(out_path, genes_set_name):
@@ -114,9 +118,10 @@ def create_out_dirs(out_path, genes_set_name):
 #create_out_dirs(Out_path, Genes_set_name_4)
 #create_out_dirs(Out_path, Genes_set_name_5)
 #create_out_dirs(Out_path, Genes_set_name_6)
-create_out_dirs(Out_path, Genes_set_name_2)
-create_out_dirs(Out_path, Genes_set_name_8)
-create_out_dirs(Out_path, Genes_set_name_9)
+#create_out_dirs(Out_path, Genes_set_name_2)
+#create_out_dirs(Out_path, Genes_set_name_8)
+#create_out_dirs(Out_path, Genes_set_name_9)
+#create_out_dirs(Out_path, Genes_set_name_10)
 
 
 
@@ -508,6 +513,10 @@ def Wrapper_signal_over_TUs(dict_of_wigs_path, path_to_annotation, type_of_annot
 #Wrapper_signal_over_TUs(Dict_of_wigs_path, Path_to_annotation_5, Type_of_annot_5, Genes_set_name_5, Deletions_inpath, Win_width, Length, Out_path)
 #Wrapper_signal_over_TUs(Dict_of_wigs_path, Path_to_annotation_6, Type_of_annot_6, Genes_set_name_6, Deletions_inpath, Win_width, Length, Out_path)
 
-Wrapper_signal_over_TUs(Dict_of_wigs_path_2, Path_to_annotation_2, Type_of_annot_2, Genes_set_name_2, Deletions_inpath, Win_width, Length, Out_path)
-Wrapper_signal_over_TUs(Dict_of_wigs_path_2, Path_to_annotation_8, Type_of_annot_8, Genes_set_name_8, Deletions_inpath, Win_width, Length, Out_path)
-Wrapper_signal_over_TUs(Dict_of_wigs_path_2, Path_to_annotation_9, Type_of_annot_9, Genes_set_name_9, Deletions_inpath, Win_width, Length, Out_path)
+#Wrapper_signal_over_TUs(Dict_of_wigs_path_2, Path_to_annotation_2, Type_of_annot_2, Genes_set_name_2, Deletions_inpath, Win_width, Length, Out_path)
+#Wrapper_signal_over_TUs(Dict_of_wigs_path_2, Path_to_annotation_8, Type_of_annot_8, Genes_set_name_8, Deletions_inpath, Win_width, Length, Out_path)
+#Wrapper_signal_over_TUs(Dict_of_wigs_path_2, Path_to_annotation_9, Type_of_annot_9, Genes_set_name_9, Deletions_inpath, Win_width, Length, Out_path)
+
+#Wrapper_signal_over_TUs(Dict_of_wigs_path_2, Path_to_annotation_1,  Type_of_annot_1,  Genes_set_name_1,  Deletions_inpath, Win_width, Length, Out_path)
+#Wrapper_signal_over_TUs(Dict_of_wigs_path_2, Path_to_annotation_5,  Type_of_annot_5,  Genes_set_name_5,  Deletions_inpath, Win_width, Length, Out_path)
+#Wrapper_signal_over_TUs(Dict_of_wigs_path_2, Path_to_annotation_10, Type_of_annot_10, Genes_set_name_10, Deletions_inpath, Win_width, Length, Out_path)
