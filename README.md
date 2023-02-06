@@ -1,4 +1,5 @@
 # E_coli_DRIP-Seq_analysis
+
 Scripts used for analysis of a DRIP-Seq data obtained for *E. coli*.
 
 This repository contains a set of bash and python scripts which have been used for DRIP-Seq data analysis and visualization.
