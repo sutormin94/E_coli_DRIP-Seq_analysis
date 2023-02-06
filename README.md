@@ -1,7 +1,11 @@
 # E_coli_DRIP-Seq_analysis
-Scripts used for DRIP-Seq data analysis obtained for E. coli
+Scripts used for analysis of a DRIP-Seq data obtained for *E. coli*.
 
 This repository contains a set of bash and python scripts which have been used for DRIP-Seq data analysis and visualization.
+Raw sequencing data and some processed files can be retrieved from GEO datasets with accession GSE181945.
+
+If you find this code useful and would like to use it in your own research, please, cite:
+Sutormin D, Galivondzhyan A, Musharova O, Travin D, Rusanova A, Obraztsova K, Borukhov S, Severinov K. Interaction between transcribing RNA polymerase and topoisomerase I prevents R-loop formation in E. coli. Nat Commun. 2022 Aug 4;13(1):4524. doi: 10.1038/s41467-022-32106-5. PMID: 35927234; PMCID: PMC9352719.
 
 
 ## ChIP-Seq_analysis_pipeline_example.sh
